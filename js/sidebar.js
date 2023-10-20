@@ -58,7 +58,6 @@ const defaultProductPrint = () => {
   fetch('https://fakestoreapi.com/products')
     .then((res) => res.json())
     .then((json) => {
-      clearMainContent();
       displayProduct(json);
     });
 };
@@ -92,7 +91,6 @@ const printProduct = (content) => {
   fetch(`https://fakestoreapi.com/products/category/${content}`)
     .then((res) => res.json())
     .then((json) => {
-      clearMainContent();
       displayProduct(json);
     });
 };
