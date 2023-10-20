@@ -14,6 +14,7 @@ const ratingInfo = document.querySelector('.rate-info');
 const countInfo = document.querySelector('.count-info');
 const btnBuy = document.querySelector('.buy-button');
 const btnCloseInfo = document.querySelector('.close-info');
+const productCard = document.querySelector('.product-card');
 
 const displayProduct = (json) => {
   for (let product of json) {
@@ -57,6 +58,7 @@ const defaultProductPrint = () => {
   fetch('https://fakestoreapi.com/products')
     .then((res) => res.json())
     .then((json) => {
+      clearMainContent();
       displayProduct(json);
     });
 };
@@ -71,14 +73,10 @@ const printCategories = () => {
         aElement.textContent = category.toUpperCase();
         liElement.appendChild(aElement);
         sidebarUl.appendChild(liElement);
-        aElement.addEventListener(
-          'click',
-          () => {
-            clearMainContent();
-            printProduct(aElement.textContent.toLocaleLowerCase());
-          },
-          { once: true },
-        );
+        aElement.addEventListener('click', () => {
+          clearMainContent();
+          printProduct(aElement.textContent.toLocaleLowerCase());
+        });
       }
     });
 };
@@ -94,6 +92,7 @@ const printProduct = (content) => {
   fetch(`https://fakestoreapi.com/products/category/${content}`)
     .then((res) => res.json())
     .then((json) => {
+      clearMainContent();
       displayProduct(json);
     });
 };
