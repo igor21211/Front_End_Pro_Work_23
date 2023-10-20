@@ -71,10 +71,14 @@ const printCategories = () => {
         aElement.textContent = category.toUpperCase();
         liElement.appendChild(aElement);
         sidebarUl.appendChild(liElement);
-        aElement.addEventListener('click', () => {
-          clearMainContent();
-          printProduct(aElement.textContent.toLocaleLowerCase());
-        });
+        aElement.addEventListener(
+          'click',
+          () => {
+            clearMainContent();
+            printProduct(aElement.textContent.toLocaleLowerCase());
+          },
+          { once: true },
+        );
       }
     });
 };
@@ -107,8 +111,10 @@ btnBuy.addEventListener('click', () => {
   alert.classList.remove('hidden');
   setTimeout(() => {
     alert.classList.add('hidden');
-  }, 1000);
+  }, 1500);
   closeInfo();
+  clearMainContent();
+  defaultProductPrint();
 });
 defaultProductPrint();
 printCategories();
