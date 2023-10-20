@@ -17,6 +17,7 @@ const btnCloseInfo = document.querySelector('.close-info');
 const productCard = document.querySelector('.product-card');
 
 const displayProduct = (json) => {
+  clearMainContent();
   for (let product of json) {
     const containerDiv = document.createElement('div');
     const titleH2 = document.createElement('h2');
@@ -73,7 +74,6 @@ const printCategories = () => {
         liElement.appendChild(aElement);
         sidebarUl.appendChild(liElement);
         aElement.addEventListener('click', () => {
-          clearMainContent();
           printProduct(aElement.textContent.toLocaleLowerCase());
         });
       }
@@ -91,7 +91,6 @@ const printProduct = (content) => {
   fetch(`https://fakestoreapi.com/products/category/${content}`)
     .then((res) => res.json())
     .then((json) => {
-      clearMainContent();
       displayProduct(json);
     });
 };
@@ -111,7 +110,6 @@ btnBuy.addEventListener('click', () => {
     alert.classList.add('hidden');
   }, 1500);
   closeInfo();
-  clearMainContent();
   defaultProductPrint();
 });
 defaultProductPrint();
