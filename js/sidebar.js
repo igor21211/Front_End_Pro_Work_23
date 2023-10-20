@@ -91,6 +91,7 @@ const printProduct = (content) => {
   fetch(`https://fakestoreapi.com/products/category/${content}`)
     .then((res) => res.json())
     .then((json) => {
+      clearMainContent();
       displayProduct(json);
     });
 };
