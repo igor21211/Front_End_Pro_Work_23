@@ -14,7 +14,7 @@ const ratingInfo = document.querySelector('.rate-info');
 const countInfo = document.querySelector('.count-info');
 const btnBuy = document.querySelector('.buy-button');
 const btnCloseInfo = document.querySelector('.close-info');
-const productCard = document.querySelector('.product-card');
+const loaders = document.querySelector('.loader');
 
 const displayProduct = (json) => {
   clearMainContent();
@@ -55,15 +55,26 @@ const displayProduct = (json) => {
   }
 };
 
+const showLoader = () => {
+  loaders.style.display = 'block';
+};
+const hideLoader = () => {
+  loaders.style.display = 'none';
+};
+
 const defaultProductPrint = () => {
+  clearMainContent();
+  showLoader();
   fetch('https://fakestoreapi.com/products')
     .then((res) => res.json())
     .then((json) => {
       displayProduct(json);
+      hideLoader();
     });
 };
 
 const printCategories = () => {
+  showLoader();
   fetch('https://fakestoreapi.com/products/categories')
     .then((res) => res.json())
     .then((json) => {
@@ -73,6 +84,7 @@ const printCategories = () => {
         aElement.textContent = category.toUpperCase();
         liElement.appendChild(aElement);
         sidebarUl.appendChild(liElement);
+        hideLoader();
         aElement.addEventListener('click', () => {
           printProduct(aElement.textContent.toLocaleLowerCase());
         });
@@ -88,10 +100,13 @@ const closeInfo = () => {
 };
 
 const printProduct = (content) => {
+  clearMainContent();
+  showLoader();
   fetch(`https://fakestoreapi.com/products/category/${content}`)
     .then((res) => res.json())
     .then((json) => {
       displayProduct(json);
+      hideLoader();
     });
 };
 
