@@ -1,6 +1,7 @@
 const sidebarUl = document.querySelector('.sidebar_menu');
 const mainContent = document.querySelector('.content');
 const header = document.querySelector('.header');
+const headerH1 = document.querySelector('.header-h1');
 const mainContainer = document.querySelector('.container');
 const footer = document.querySelector('.footer');
 const alert = document.querySelector('.alert');
@@ -82,7 +83,7 @@ const closeInfo = () => {
   infoEl.classList.remove('show-info');
   infoEl.classList.add('hidden');
   header.classList.remove('deactive');
-  document.querySelector('.header-h1').classList.remove('hidden');
+  headerH1.classList.remove('hidden');
 };
 
 const printProduct = (content) => {
@@ -98,6 +99,9 @@ const clearMainContent = () => {
     mainContent.removeChild(mainContent.firstChild);
   }
 };
+headerH1.addEventListener('click', () => {
+  location.reload();
+});
 
 btnBuy.addEventListener('click', () => {
   alert.classList.remove('hidden');

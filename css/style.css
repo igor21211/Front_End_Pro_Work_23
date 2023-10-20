@@ -186,3 +186,6 @@ footer {
   transition: 1s;
   font-size: 18px;
 }
+.header-h1 {
+  cursor: pointer;
+}
