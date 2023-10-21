@@ -130,3 +130,9 @@ btnBuy.addEventListener('click', () => {
 defaultProductPrint();
 printCategories();
 btnCloseInfo.addEventListener('click', closeInfo);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !infoEl.classList.contains('hidden')) {
+    closeInfo();
+  }
+});
