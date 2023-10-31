@@ -1,9 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Store</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <h1 class="header-h1">Store</h1>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <ul class="sidebar_menu"></ul>
+      </aside>
+      <main class="content"></main>
+    </div>
+    <div class="info hidden">
+      <button class="close-info">&times;</button>
+      <img class="image-info" src="" alt="image" />
+      <h2 class="title-info"></h2>
+      <p class="description-info"></p>
+      <p class="price-info"></p>
+      <p>
+        <span class="rate-info"></span>
+        <span class="count-info"></span>
+      </p>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="alert hidden">
+      <p>✅ Thank you for your purchase, come again ✅</p>
+    </div>
+    <span class="loader"></span>
+    <footer class="footer">
+      <p>&copy; 2023 With love</p>
+    </footer>
+    <script src="js/sidebar.js"></script>
+  </body>
 </html>
